@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.3
-// source: core/contract/common.proto
+// source: core/common.proto
 
-package contract
+package core
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -54,11 +54,11 @@ func (x ResourceCode) String() string {
 }
 
 func (ResourceCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_core_contract_common_proto_enumTypes[0].Descriptor()
+	return file_core_common_proto_enumTypes[0].Descriptor()
 }
 
 func (ResourceCode) Type() protoreflect.EnumType {
-	return &file_core_contract_common_proto_enumTypes[0]
+	return &file_core_common_proto_enumTypes[0]
 }
 
 func (x ResourceCode) Number() protoreflect.EnumNumber {
@@ -67,39 +67,39 @@ func (x ResourceCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceCode.Descriptor instead.
 func (ResourceCode) EnumDescriptor() ([]byte, []int) {
-	return file_core_contract_common_proto_rawDescGZIP(), []int{0}
+	return file_core_common_proto_rawDescGZIP(), []int{0}
 }
 
-var File_core_contract_common_proto protoreflect.FileDescriptor
+var File_core_common_proto protoreflect.FileDescriptor
 
-const file_core_contract_common_proto_rawDesc = "" +
+const file_core_common_proto_rawDesc = "" +
 	"\n" +
-	"\x1acore/contract/common.proto\x12\bprotocol*9\n" +
+	"\x11core/common.proto\x12\bprotocol*9\n" +
 	"\fResourceCode\x12\r\n" +
 	"\tBANDWIDTH\x10\x00\x12\n" +
 	"\n" +
 	"\x06ENERGY\x10\x01\x12\x0e\n" +
 	"\n" +
-	"TRON_POWER\x10\x02BU\n" +
-	"\x18org.tron.protos.contractZ9github.com/wifiwang777/tron-protocol/protos/core/contractb\x06proto3"
+	"TRON_POWER\x10\x02BL\n" +
+	"\x18org.tron.protos.contractZ0github.com/wifiwang777/tron-protocol/protos/coreb\x06proto3"
 
 var (
-	file_core_contract_common_proto_rawDescOnce sync.Once
-	file_core_contract_common_proto_rawDescData []byte
+	file_core_common_proto_rawDescOnce sync.Once
+	file_core_common_proto_rawDescData []byte
 )
 
-func file_core_contract_common_proto_rawDescGZIP() []byte {
-	file_core_contract_common_proto_rawDescOnce.Do(func() {
-		file_core_contract_common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_core_contract_common_proto_rawDesc), len(file_core_contract_common_proto_rawDesc)))
+func file_core_common_proto_rawDescGZIP() []byte {
+	file_core_common_proto_rawDescOnce.Do(func() {
+		file_core_common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_core_common_proto_rawDesc), len(file_core_common_proto_rawDesc)))
 	})
-	return file_core_contract_common_proto_rawDescData
+	return file_core_common_proto_rawDescData
 }
 
-var file_core_contract_common_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_core_contract_common_proto_goTypes = []any{
+var file_core_common_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_core_common_proto_goTypes = []any{
 	(ResourceCode)(0), // 0: protocol.ResourceCode
 }
-var file_core_contract_common_proto_depIdxs = []int32{
+var file_core_common_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -107,26 +107,26 @@ var file_core_contract_common_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_core_contract_common_proto_init() }
-func file_core_contract_common_proto_init() {
-	if File_core_contract_common_proto != nil {
+func init() { file_core_common_proto_init() }
+func file_core_common_proto_init() {
+	if File_core_common_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_core_contract_common_proto_rawDesc), len(file_core_contract_common_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_core_common_proto_rawDesc), len(file_core_common_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_core_contract_common_proto_goTypes,
-		DependencyIndexes: file_core_contract_common_proto_depIdxs,
-		EnumInfos:         file_core_contract_common_proto_enumTypes,
+		GoTypes:           file_core_common_proto_goTypes,
+		DependencyIndexes: file_core_common_proto_depIdxs,
+		EnumInfos:         file_core_common_proto_enumTypes,
 	}.Build()
-	File_core_contract_common_proto = out.File
-	file_core_contract_common_proto_goTypes = nil
-	file_core_contract_common_proto_depIdxs = nil
+	File_core_common_proto = out.File
+	file_core_common_proto_goTypes = nil
+	file_core_common_proto_depIdxs = nil
 }

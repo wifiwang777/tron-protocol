@@ -7,7 +7,6 @@
 package core
 
 import (
-	contract "github.com/wifiwang777/tron-protocol/protos/core/contract"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -4632,7 +4631,7 @@ func (x *Account_AccountResource) GetEnergyWindowOptimized() bool {
 
 type Account_FreezeV2 struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Type          contract.ResourceCode  `protobuf:"varint,1,opt,name=type,proto3,enum=protocol.ResourceCode" json:"type,omitempty"`
+	Type          ResourceCode           `protobuf:"varint,1,opt,name=type,proto3,enum=protocol.ResourceCode" json:"type,omitempty"`
 	Amount        int64                  `protobuf:"varint,2,opt,name=amount,proto3" json:"amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -4668,11 +4667,11 @@ func (*Account_FreezeV2) Descriptor() ([]byte, []int) {
 	return file_core_Tron_proto_rawDescGZIP(), []int{13, 8}
 }
 
-func (x *Account_FreezeV2) GetType() contract.ResourceCode {
+func (x *Account_FreezeV2) GetType() ResourceCode {
 	if x != nil {
 		return x.Type
 	}
-	return contract.ResourceCode(0)
+	return ResourceCode_BANDWIDTH
 }
 
 func (x *Account_FreezeV2) GetAmount() int64 {
@@ -4684,7 +4683,7 @@ func (x *Account_FreezeV2) GetAmount() int64 {
 
 type Account_UnFreezeV2 struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
-	Type               contract.ResourceCode  `protobuf:"varint,1,opt,name=type,proto3,enum=protocol.ResourceCode" json:"type,omitempty"`
+	Type               ResourceCode           `protobuf:"varint,1,opt,name=type,proto3,enum=protocol.ResourceCode" json:"type,omitempty"`
 	UnfreezeAmount     int64                  `protobuf:"varint,3,opt,name=unfreeze_amount,json=unfreezeAmount,proto3" json:"unfreeze_amount,omitempty"`
 	UnfreezeExpireTime int64                  `protobuf:"varint,4,opt,name=unfreeze_expire_time,json=unfreezeExpireTime,proto3" json:"unfreeze_expire_time,omitempty"`
 	unknownFields      protoimpl.UnknownFields
@@ -4721,11 +4720,11 @@ func (*Account_UnFreezeV2) Descriptor() ([]byte, []int) {
 	return file_core_Tron_proto_rawDescGZIP(), []int{13, 9}
 }
 
-func (x *Account_UnFreezeV2) GetType() contract.ResourceCode {
+func (x *Account_UnFreezeV2) GetType() ResourceCode {
 	if x != nil {
 		return x.Type
 	}
-	return contract.ResourceCode(0)
+	return ResourceCode_BANDWIDTH
 }
 
 func (x *Account_UnFreezeV2) GetUnfreezeAmount() int64 {
@@ -7245,7 +7244,7 @@ var File_core_Tron_proto protoreflect.FileDescriptor
 
 const file_core_Tron_proto_rawDesc = "" +
 	"\n" +
-	"\x0fcore/Tron.proto\x12\bprotocol\x1a\x19google/protobuf/any.proto\x1a\x13core/Discover.proto\x1a\x1acore/contract/common.proto\"9\n" +
+	"\x0fcore/Tron.proto\x12\bprotocol\x1a\x19google/protobuf/any.proto\x1a\x13core/Discover.proto\x1a\x11core/common.proto\"9\n" +
 	"\tAccountId\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\fR\x04name\x12\x18\n" +
 	"\aaddress\x18\x02 \x01(\fR\aaddress\"H\n" +
@@ -8137,7 +8136,7 @@ var file_core_Tron_proto_goTypes = []any{
 	(*MetricsInfo_NetInfo_LatencyInfo_LatencyDetailInfo)(nil), // 99: protocol.MetricsInfo.NetInfo.LatencyInfo.LatencyDetailInfo
 	(*PBFTMessage_Raw)(nil),                                   // 100: protocol.PBFTMessage.Raw
 	(*Endpoint)(nil),                                          // 101: protocol.Endpoint
-	(contract.ResourceCode)(0),                                // 102: protocol.ResourceCode
+	(ResourceCode)(0),                                         // 102: protocol.ResourceCode
 	(*anypb.Any)(nil),                                         // 103: google.protobuf.Any
 }
 var file_core_Tron_proto_depIdxs = []int32{
@@ -8256,6 +8255,7 @@ func file_core_Tron_proto_init() {
 		return
 	}
 	file_core_Discover_proto_init()
+	file_core_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package contract
 
 import (
+	core "github.com/wifiwang777/tron-protocol/protos/core"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -26,7 +27,7 @@ type FreezeBalanceContract struct {
 	OwnerAddress    []byte                 `protobuf:"bytes,1,opt,name=owner_address,json=ownerAddress,proto3" json:"owner_address,omitempty"`
 	FrozenBalance   int64                  `protobuf:"varint,2,opt,name=frozen_balance,json=frozenBalance,proto3" json:"frozen_balance,omitempty"`
 	FrozenDuration  int64                  `protobuf:"varint,3,opt,name=frozen_duration,json=frozenDuration,proto3" json:"frozen_duration,omitempty"`
-	Resource        ResourceCode           `protobuf:"varint,10,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
+	Resource        core.ResourceCode      `protobuf:"varint,10,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
 	ReceiverAddress []byte                 `protobuf:"bytes,15,opt,name=receiver_address,json=receiverAddress,proto3" json:"receiver_address,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -83,11 +84,11 @@ func (x *FreezeBalanceContract) GetFrozenDuration() int64 {
 	return 0
 }
 
-func (x *FreezeBalanceContract) GetResource() ResourceCode {
+func (x *FreezeBalanceContract) GetResource() core.ResourceCode {
 	if x != nil {
 		return x.Resource
 	}
-	return ResourceCode_BANDWIDTH
+	return core.ResourceCode(0)
 }
 
 func (x *FreezeBalanceContract) GetReceiverAddress() []byte {
@@ -100,7 +101,7 @@ func (x *FreezeBalanceContract) GetReceiverAddress() []byte {
 type UnfreezeBalanceContract struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	OwnerAddress    []byte                 `protobuf:"bytes,1,opt,name=owner_address,json=ownerAddress,proto3" json:"owner_address,omitempty"`
-	Resource        ResourceCode           `protobuf:"varint,10,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
+	Resource        core.ResourceCode      `protobuf:"varint,10,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
 	ReceiverAddress []byte                 `protobuf:"bytes,15,opt,name=receiver_address,json=receiverAddress,proto3" json:"receiver_address,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -143,11 +144,11 @@ func (x *UnfreezeBalanceContract) GetOwnerAddress() []byte {
 	return nil
 }
 
-func (x *UnfreezeBalanceContract) GetResource() ResourceCode {
+func (x *UnfreezeBalanceContract) GetResource() core.ResourceCode {
 	if x != nil {
 		return x.Resource
 	}
-	return ResourceCode_BANDWIDTH
+	return core.ResourceCode(0)
 }
 
 func (x *UnfreezeBalanceContract) GetReceiverAddress() []byte {
@@ -593,7 +594,7 @@ type FreezeBalanceV2Contract struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	OwnerAddress  []byte                 `protobuf:"bytes,1,opt,name=owner_address,json=ownerAddress,proto3" json:"owner_address,omitempty"`
 	FrozenBalance int64                  `protobuf:"varint,2,opt,name=frozen_balance,json=frozenBalance,proto3" json:"frozen_balance,omitempty"`
-	Resource      ResourceCode           `protobuf:"varint,3,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
+	Resource      core.ResourceCode      `protobuf:"varint,3,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -642,18 +643,18 @@ func (x *FreezeBalanceV2Contract) GetFrozenBalance() int64 {
 	return 0
 }
 
-func (x *FreezeBalanceV2Contract) GetResource() ResourceCode {
+func (x *FreezeBalanceV2Contract) GetResource() core.ResourceCode {
 	if x != nil {
 		return x.Resource
 	}
-	return ResourceCode_BANDWIDTH
+	return core.ResourceCode(0)
 }
 
 type UnfreezeBalanceV2Contract struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	OwnerAddress    []byte                 `protobuf:"bytes,1,opt,name=owner_address,json=ownerAddress,proto3" json:"owner_address,omitempty"`
 	UnfreezeBalance int64                  `protobuf:"varint,2,opt,name=unfreeze_balance,json=unfreezeBalance,proto3" json:"unfreeze_balance,omitempty"`
-	Resource        ResourceCode           `protobuf:"varint,3,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
+	Resource        core.ResourceCode      `protobuf:"varint,3,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -702,11 +703,11 @@ func (x *UnfreezeBalanceV2Contract) GetUnfreezeBalance() int64 {
 	return 0
 }
 
-func (x *UnfreezeBalanceV2Contract) GetResource() ResourceCode {
+func (x *UnfreezeBalanceV2Contract) GetResource() core.ResourceCode {
 	if x != nil {
 		return x.Resource
 	}
-	return ResourceCode_BANDWIDTH
+	return core.ResourceCode(0)
 }
 
 type WithdrawExpireUnfreezeContract struct {
@@ -756,7 +757,7 @@ func (x *WithdrawExpireUnfreezeContract) GetOwnerAddress() []byte {
 type DelegateResourceContract struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	OwnerAddress    []byte                 `protobuf:"bytes,1,opt,name=owner_address,json=ownerAddress,proto3" json:"owner_address,omitempty"`
-	Resource        ResourceCode           `protobuf:"varint,2,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
+	Resource        core.ResourceCode      `protobuf:"varint,2,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
 	Balance         int64                  `protobuf:"varint,3,opt,name=balance,proto3" json:"balance,omitempty"`
 	ReceiverAddress []byte                 `protobuf:"bytes,4,opt,name=receiver_address,json=receiverAddress,proto3" json:"receiver_address,omitempty"`
 	Lock            bool                   `protobuf:"varint,5,opt,name=lock,proto3" json:"lock,omitempty"`
@@ -802,11 +803,11 @@ func (x *DelegateResourceContract) GetOwnerAddress() []byte {
 	return nil
 }
 
-func (x *DelegateResourceContract) GetResource() ResourceCode {
+func (x *DelegateResourceContract) GetResource() core.ResourceCode {
 	if x != nil {
 		return x.Resource
 	}
-	return ResourceCode_BANDWIDTH
+	return core.ResourceCode(0)
 }
 
 func (x *DelegateResourceContract) GetBalance() int64 {
@@ -840,7 +841,7 @@ func (x *DelegateResourceContract) GetLockPeriod() int64 {
 type UnDelegateResourceContract struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	OwnerAddress    []byte                 `protobuf:"bytes,1,opt,name=owner_address,json=ownerAddress,proto3" json:"owner_address,omitempty"`
-	Resource        ResourceCode           `protobuf:"varint,2,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
+	Resource        core.ResourceCode      `protobuf:"varint,2,opt,name=resource,proto3,enum=protocol.ResourceCode" json:"resource,omitempty"`
 	Balance         int64                  `protobuf:"varint,3,opt,name=balance,proto3" json:"balance,omitempty"`
 	ReceiverAddress []byte                 `protobuf:"bytes,4,opt,name=receiver_address,json=receiverAddress,proto3" json:"receiver_address,omitempty"`
 	unknownFields   protoimpl.UnknownFields
@@ -884,11 +885,11 @@ func (x *UnDelegateResourceContract) GetOwnerAddress() []byte {
 	return nil
 }
 
-func (x *UnDelegateResourceContract) GetResource() ResourceCode {
+func (x *UnDelegateResourceContract) GetResource() core.ResourceCode {
 	if x != nil {
 		return x.Resource
 	}
-	return ResourceCode_BANDWIDTH
+	return core.ResourceCode(0)
 }
 
 func (x *UnDelegateResourceContract) GetBalance() int64 {
@@ -1065,7 +1066,7 @@ var File_core_contract_balance_contract_proto protoreflect.FileDescriptor
 
 const file_core_contract_balance_contract_proto_rawDesc = "" +
 	"\n" +
-	"$core/contract/balance_contract.proto\x12\bprotocol\x1a\x1acore/contract/common.proto\"\xeb\x01\n" +
+	"$core/contract/balance_contract.proto\x12\bprotocol\x1a\x11core/common.proto\"\xeb\x01\n" +
 	"\x15FreezeBalanceContract\x12#\n" +
 	"\rowner_address\x18\x01 \x01(\fR\fownerAddress\x12%\n" +
 	"\x0efrozen_balance\x18\x02 \x01(\x03R\rfrozenBalance\x12'\n" +
@@ -1171,7 +1172,7 @@ var file_core_contract_balance_contract_proto_goTypes = []any{
 	(*CancelAllUnfreezeV2Contract)(nil),       // 15: protocol.CancelAllUnfreezeV2Contract
 	(*TransactionBalanceTrace_Operation)(nil), // 16: protocol.TransactionBalanceTrace.Operation
 	(*BlockBalanceTrace_BlockIdentifier)(nil), // 17: protocol.BlockBalanceTrace.BlockIdentifier
-	(ResourceCode)(0),                         // 18: protocol.ResourceCode
+	(core.ResourceCode)(0),                    // 18: protocol.ResourceCode
 }
 var file_core_contract_balance_contract_proto_depIdxs = []int32{
 	18, // 0: protocol.FreezeBalanceContract.resource:type_name -> protocol.ResourceCode
@@ -1198,7 +1199,6 @@ func file_core_contract_balance_contract_proto_init() {
 	if File_core_contract_balance_contract_proto != nil {
 		return
 	}
-	file_core_contract_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
