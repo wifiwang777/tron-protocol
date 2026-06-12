@@ -2,7 +2,7 @@
 
 PROTO_PATH="./"
 OUTPUT_DIR="./protos"
-GOOGLEAPIS_PATH="/Users/wangfeng/code/protocol-buffer/googleapis"
+GOOGLEAPIS_PATH="~/code/protocol-buffer/googleapis"
 mkdir -p "$OUTPUT_DIR"
 
 # 遍历所有 .proto 文件并编译

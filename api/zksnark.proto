@@ -27,7 +27,3 @@ message ZksnarkResponse {
 
   Code code = 1;
 }
-
-
-
-
