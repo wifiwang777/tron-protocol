@@ -1,6 +1,6 @@
 module github.com/wifiwang777/tron-protocol
 
-go 1.25.0
+go 1.26
 
 require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20260610212136-7ab31c22f7ad
